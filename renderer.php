@@ -108,9 +108,9 @@ class qtype_logic_certificate_renderer extends qtype_renderer
 			);
 		}
 		
-		echo '<pre>';
-		print_r($question->applet_url);
-		echo '</pre>';
+// 		echo '<pre>';
+// 		print_r($question->applet_url);
+// 		echo '</pre>';
 		
 		return $result;
 	}

@@ -169,11 +169,22 @@ class Logic_Certificate
 		else
 		{
 			$this->applet_id = intval( substr($this->certificate, 2, 2), 36 ) - $this->key;
-
-			$id1 = intval( substr($this->certificate, 12, 2), 36 ) + $this->key;
-			$id2 = intval( substr($this->certificate, 15, 2), 36 ) + $this->key;
-			$id3 = intval( substr($this->certificate, 17, 2), 36 ) + $this->key;
+			
+			if( $this->applet_id == 57 )
+			{
+				$id1 = intval( substr($this->certificate, 12, 2), 36 ) - $this->key;
+				$id2 = intval( substr($this->certificate, 15, 2), 36 ) - $this->key;
+				$id3 = intval( substr($this->certificate, 17, 2), 36 ) - $this->key;
+			}
+			else
+			{
+				$id1 = intval( substr($this->certificate, 12, 2), 36 ) + $this->key;
+				$id2 = intval( substr($this->certificate, 15, 2), 36 ) + $this->key;
+				$id3 = intval( substr($this->certificate, 17, 2), 36 ) + $this->key;
+			}
 		}
+		
+
 
 		$this->username = chr($id1) . chr($id2) . chr($id3);
 	
